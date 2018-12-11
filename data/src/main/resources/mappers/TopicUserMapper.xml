@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zxb.advance.data.mappers.TopicUserMapper">
+  <resultMap id="BaseResultMap" type="zxb.advance.model.dao.TopicUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="topicId" jdbcType="INTEGER" property="topicid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="series" jdbcType="VARCHAR" property="series" />
+    <result column="intentCar" jdbcType="VARCHAR" property="intentcar" />
+    <result column="buyTime" jdbcType="VARCHAR" property="buytime" />
+    <result column="buyBudget" jdbcType="VARCHAR" property="buybudget" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="dealer" jdbcType="VARCHAR" property="dealer" />
+    <result column="isDrive" jdbcType="BIT" property="isdrive" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="platform" jdbcType="BIT" property="platform" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="pvAreaId" jdbcType="INTEGER" property="pvareaid" />
+    <result column="typeId" jdbcType="VARCHAR" property="typeid" />
+    <result column="pageLoadId" jdbcType="VARCHAR" property="pageloadid" />
+    <result column="referrer" jdbcType="VARCHAR" property="referrer" />
+    <result column="sessionId" jdbcType="VARCHAR" property="sessionid" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="INTEGER" property="extend2" />
+    <result column="extend3" jdbcType="INTEGER" property="extend3" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="pvId" jdbcType="VARCHAR" property="pvid" />
+    <result column="encryptName" jdbcType="VARCHAR" property="encryptname" />
+    <result column="encryptMobile" jdbcType="VARCHAR" property="encryptmobile" />
+    <result column="encryptEmail" jdbcType="VARCHAR" property="encryptemail" />
+    <result column="hashMobile" jdbcType="VARCHAR" property="hashmobile" />
+    <result column="hashName" jdbcType="VARCHAR" property="hashname" />
+    <result column="hashEmail" jdbcType="VARCHAR" property="hashemail" />
+    <result column="keySupplyBusinessId" jdbcType="INTEGER" property="keysupplybusinessid" />
+    <result column="keyInsideLinkidId" jdbcType="VARCHAR" property="keyinsidelinkidid" />
+    <result column="keyOutsidePvareaidId" jdbcType="VARCHAR" property="keyoutsidepvareaidid" />
+    <result column="keyNeedBusinessId" jdbcType="TINYINT" property="keyneedbusinessid" />
+    <result column="keyUniqueId" jdbcType="VARCHAR" property="keyuniqueid" />
+    <result column="keyActivityId" jdbcType="INTEGER" property="keyactivityid" />
+    <result column="keyReleaseId" jdbcType="INTEGER" property="keyreleaseid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from topic_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxb.advance.model.dao.TopicUser">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into topic_user (topicId, `name`, mobile, 
+      sex, email, series, intentCar, 
+      buyTime, buyBudget, province, 
+      city, dealer, isDrive, 
+      remark, platform, ip, pvAreaId, 
+      typeId, pageLoadId, referrer, 
+      sessionId, `status`, extend1, 
+      extend2, extend3, updateTime, 
+      createTime, pvId, encryptName, 
+      encryptMobile, encryptEmail, hashMobile, 
+      hashName, hashEmail, keySupplyBusinessId, 
+      keyInsideLinkidId, keyOutsidePvareaidId, 
+      keyNeedBusinessId, keyUniqueId, keyActivityId, 
+      keyReleaseId)
+    values (#{topicid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{series,jdbcType=VARCHAR}, #{intentcar,jdbcType=VARCHAR}, 
+      #{buytime,jdbcType=VARCHAR}, #{buybudget,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{dealer,jdbcType=VARCHAR}, #{isdrive,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR}, #{platform,jdbcType=BIT}, #{ip,jdbcType=VARCHAR}, #{pvareaid,jdbcType=INTEGER}, 
+      #{typeid,jdbcType=VARCHAR}, #{pageloadid,jdbcType=VARCHAR}, #{referrer,jdbcType=VARCHAR}, 
+      #{sessionid,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, #{extend1,jdbcType=VARCHAR}, 
+      #{extend2,jdbcType=INTEGER}, #{extend3,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{pvid,jdbcType=VARCHAR}, #{encryptname,jdbcType=VARCHAR}, 
+      #{encryptmobile,jdbcType=VARCHAR}, #{encryptemail,jdbcType=VARCHAR}, #{hashmobile,jdbcType=VARCHAR}, 
+      #{hashname,jdbcType=VARCHAR}, #{hashemail,jdbcType=VARCHAR}, #{keysupplybusinessid,jdbcType=INTEGER}, 
+      #{keyinsidelinkidid,jdbcType=VARCHAR}, #{keyoutsidepvareaidid,jdbcType=VARCHAR}, 
+      #{keyneedbusinessid,jdbcType=TINYINT}, #{keyuniqueid,jdbcType=VARCHAR}, #{keyactivityid,jdbcType=INTEGER}, 
+      #{keyreleaseid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="zxb.advance.model.dao.TopicUser">
+    update topic_user
+    set topicId = #{topicid,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIT},
+      email = #{email,jdbcType=VARCHAR},
+      series = #{series,jdbcType=VARCHAR},
+      intentCar = #{intentcar,jdbcType=VARCHAR},
+      buyTime = #{buytime,jdbcType=VARCHAR},
+      buyBudget = #{buybudget,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      dealer = #{dealer,jdbcType=VARCHAR},
+      isDrive = #{isdrive,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=BIT},
+      ip = #{ip,jdbcType=VARCHAR},
+      pvAreaId = #{pvareaid,jdbcType=INTEGER},
+      typeId = #{typeid,jdbcType=VARCHAR},
+      pageLoadId = #{pageloadid,jdbcType=VARCHAR},
+      referrer = #{referrer,jdbcType=VARCHAR},
+      sessionId = #{sessionid,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=BIT},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=INTEGER},
+      extend3 = #{extend3,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      pvId = #{pvid,jdbcType=VARCHAR},
+      encryptName = #{encryptname,jdbcType=VARCHAR},
+      encryptMobile = #{encryptmobile,jdbcType=VARCHAR},
+      encryptEmail = #{encryptemail,jdbcType=VARCHAR},
+      hashMobile = #{hashmobile,jdbcType=VARCHAR},
+      hashName = #{hashname,jdbcType=VARCHAR},
+      hashEmail = #{hashemail,jdbcType=VARCHAR},
+      keySupplyBusinessId = #{keysupplybusinessid,jdbcType=INTEGER},
+      keyInsideLinkidId = #{keyinsidelinkidid,jdbcType=VARCHAR},
+      keyOutsidePvareaidId = #{keyoutsidepvareaidid,jdbcType=VARCHAR},
+      keyNeedBusinessId = #{keyneedbusinessid,jdbcType=TINYINT},
+      keyUniqueId = #{keyuniqueid,jdbcType=VARCHAR},
+      keyActivityId = #{keyactivityid,jdbcType=INTEGER},
+      keyReleaseId = #{keyreleaseid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, topicId, `name`, mobile, sex, email, series, intentCar, buyTime, buyBudget, 
+    province, city, dealer, isDrive, remark, platform, ip, pvAreaId, typeId, pageLoadId, 
+    referrer, sessionId, `status`, extend1, extend2, extend3, updateTime, createTime, 
+    pvId, encryptName, encryptMobile, encryptEmail, hashMobile, hashName, hashEmail, 
+    keySupplyBusinessId, keyInsideLinkidId, keyOutsidePvareaidId, keyNeedBusinessId, 
+    keyUniqueId, keyActivityId, keyReleaseId
+    from topic_user where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, topicId, `name`, mobile, sex, email, series, intentCar, buyTime, buyBudget, 
+    province, city, dealer, isDrive, remark, platform, ip, pvAreaId, typeId, pageLoadId, 
+    referrer, sessionId, `status`, extend1, extend2, extend3, updateTime, createTime, 
+    pvId, encryptName, encryptMobile, encryptEmail, hashMobile, hashName, hashEmail, 
+    keySupplyBusinessId, keyInsideLinkidId, keyOutsidePvareaidId, keyNeedBusinessId, 
+    keyUniqueId, keyActivityId, keyReleaseId
+    from topic_user
+  </select>
+</mapper>
