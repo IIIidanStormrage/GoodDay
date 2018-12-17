@@ -10,10 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableTransactionManagement //开启事务注解<tx:annotation-driven />
 @MapperScan(sqlSessionFactoryRef = "zxbSqlSessionFactory",basePackages = "zxb.advance.data.mappers")
 public class DataSourceConfig {
 /*  private String url;*/
@@ -29,7 +32,7 @@ public class DataSourceConfig {
         return  dataSource;
     }
 
-/*把对应数据源假如事物*/
+/*把对应数据源加入事物*/
 
     @Bean("zxbTranscationManager")
     @Primary
